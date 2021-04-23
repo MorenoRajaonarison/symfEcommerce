@@ -10,6 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/all.min.css') }}">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -49,10 +50,11 @@
                 {% if app.user %}
                     <a href="{{ path("account") }}">{{ app.user.firstname }}</a> | <a href="{{ path("app_logout") }}">Deconnecter</a>
                 {% else %}
-                    <a href="{{ path("app_login") }}">Connexion</a> | <a href="{{ path("register") }}">Inscription</a>
+                    <a href="{{ path("app_login") }}">Connexion</a> | <a href="{{ path("register") }}">Inscription</a> |
+                    <a href="{{ path('cart') }}"><img src="{{ asset('assets/img/shopping.png') }}" alt="Mon panier" class="cart-icon"></a>
                 {% endif %}
             </div>
-
+            
         </div>
     </nav>
 </header>
