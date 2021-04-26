@@ -30,14 +30,15 @@
                         <small>{{ product.product.subtitle }}</small>
                     </th>
                     <td>
-                        <a href="{{ path('decrease_tocart',{'id':product.product.id}) }}"><span class="fa fa-mobile"></span></a>
+                        <a href="{{ path('decrease_tocart',{'id':product.product.id}) }}"><span class="fas fa-mobile"></span></a>
                         x {{ product.quantity }}
-                        <a href="{{ path('add_to_cart',{'id':product.product.id}) }}"><span class="fa fa-mobile"></span></a>
+                        <a href="{{ path('add_to_cart',{'id':product.product.id}) }}"><span class="fas fa-mobile"></span></a>
                     </td>
                     <td>{{ (product.product.price /100) |number_format(2,",") }} €</td>
                     <td>{{ ((product.product.price * product.quantity) /100) |number_format(2,",") }} €</td>
-                    <td><a href="{{ path('remove_tocart',{'id':product.product.id}) }}" class="text-danger"><span class="fa fa-trash"></span></a>
+                    <td><a href="{{ path('remove_tocart',{'id':product.product.id}) }}" class="text-danger"><span class="far fa-trash"></span></a>
                     </td>
+                    
                 </tr>
                 {% set total = total + product.product.price * product.quantity %}
             {% endfor %}
@@ -47,7 +48,7 @@
         <div class="text-right mb-5">
             <b>Nombre de produit : </b>{{ cart|length }}<br>
             <b>Total de de mon panier : </b>{{ (total /100) |number_format(2,",") }} €
-            <a href="" class="btn btn-success btn-block mt-3">Valider mon panier</a>
+            <a href="{{ path('order') }}" class="btn btn-success btn-block mt-3">Valider mon panier</a>
         </div>
     {% else %}
         <hr>
